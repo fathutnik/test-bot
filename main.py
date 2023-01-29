@@ -1,12 +1,13 @@
 from telegram import *
 from telegram.ext import ApplicationBuilder, CommandHandler, CallbackContext
-import datetime
+import datetime, time
 
 t = {}
+utc = time.timezone/3600
 
 async def start(update: Update, context: CallbackContext):
     time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    await context.bot.send_photo(chat_id=update.effective_chat.id, photo='./IMG_7374.jpg', caption=time)
+    await context.bot.send_photo(chat_id=update.effective_chat.id, photo='./IMG_7374.jpg', caption=time + " UTC: " + str(utc))
     message = update.message
     t["@" + str(message.chat.username)] = time
     print(t)
