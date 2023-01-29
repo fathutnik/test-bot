@@ -1,1 +1,1 @@
-pip3 install requirements.txt
+https://t.me/hse_media_test_bot
