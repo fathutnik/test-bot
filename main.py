@@ -1,12 +1,12 @@
 from telegram import *
-from telegram.ext import ApplicationBuilder, CommandHandler, CallbackContext, MessageHandler
+from telegram.ext import ApplicationBuilder, CommandHandler, CallbackContext
 import datetime
 
 t = {}
 
-async def start(update: Update, context: CallbackContext, message:MessageHandler):
+async def start(update: Update, context: CallbackContext):
     time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    await context.bot.send_photo(chat_id=update.effective_chat.id, photo='/Users/nikita/PycharmProjects/test-bot/IMG_7374.jpg', caption=time)
+    await context.bot.send_photo(chat_id=update.effective_chat.id, photo='./IMG_7374.jpg', caption=time)
     message = update.message
     t["@" + str(message.chat.username)] = time
     print(t)
